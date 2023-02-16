@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Pages.sPlayerPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid MinimumHeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.8*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Margin="0" Text="Наз." Clicked="buttonBackClick" HorizontalOptions="Fill" VerticalOptions="Fill" />
+                <Label Grid.Column="1" Padding="10, 0, 0, 0" Background="CadetBlue" VerticalTextAlignment="Center"  TextColor="White" FontAttributes="Bold" Text="Игрок" />
+            </Grid>
+            <Grid Margin="10, 0" HorizontalOptions="Fill">
+                <Label Grid.Column="0" Grid.Row="0" x:Name="_playerLabel_id" Text="id: -" />
+                <Label Grid.Column="0" Grid.Row="1" x:Name="_playerLabel_name" Text="id: -" />
+                <Label Grid.Column="0" Grid.Row="2" x:Name="_playerLabel_map" Text="id: -" />
+
+                <Button Grid.Column="2" Grid.Row="0" Text="Редактировать" Clicked="onButtonPlayerEditClick" Font="12"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

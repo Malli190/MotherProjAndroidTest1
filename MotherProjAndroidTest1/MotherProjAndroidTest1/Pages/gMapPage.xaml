@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Pages.gMapPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Grid MinimumHeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.8*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Margin="0" Text="Наз." Clicked="buttonBackClick" HorizontalOptions="Fill" VerticalOptions="Fill" />
+                <Label x:Name="labelHead" Grid.Column="1" Padding="10, 0, 0, 0" Background="CadetBlue" VerticalTextAlignment="Center"  TextColor="White" FontAttributes="Bold" Text="Карта" />
+            </Grid>
+            <StackLayout x:Name="buttonsPanel" Orientation="Horizontal" Spacing="0" HeightRequest="45">
+                <Button Text="Обший" Clicked="onButtonGenerallick" BorderWidth="0" />
+                <Button Text="Район" Clicked="onButtonAreaclick" BorderWidth="0" />
+                <Button Text="Участок" Clicked="onButtonRegionclick" BorderWidth="0" />
+                <Button Text="Обновить" Clicked="onButtonUpdateMapclick" BorderWidth="0"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Выбранный район: -" x:Name="currentAreaLabel" />
+                <Label Text="Выбранный участок: -" x:Name="currentRegionLabel" />
+            </StackLayout>
+            <Grid Margin="10, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="45" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0" Grid.Row="0" Text="x: -" x:Name="labelXPos" />
+                <Label Grid.Column="0" Grid.Row="1" Text="y: -" x:Name="labelYPos"/>
+
+                <Grid x:Name="imageParentLayout" MinimumHeightRequest="250" Grid.Column="1" Grid.Row="0" Grid.RowSpan="10" >
+                 
+                </Grid>
+
+                <Label Grid.Column="2" Grid.Row="0" Text="test" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

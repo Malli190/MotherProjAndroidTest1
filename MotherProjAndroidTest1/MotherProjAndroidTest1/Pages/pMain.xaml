@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Pages.pMain">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <Label Margin="0, 0, 0, 0" Padding="5" BackgroundColor="CadetBlue" HeightRequest="50" VerticalTextAlignment="Center" TextColor="White" FontAttributes="Bold" Text="Мой корабль" />
+            <StackLayout Orientation="Horizontal">
+                <Button Grid.Column="0" Grid.Row="0" Text="Карт." Clicked="onButtonMapPageClick" />
+                <Button Grid.Column="0" Grid.Row="1" Text="Наст." Clicked="onButtonPageSettingsClick" />
+                <Button Grid.Column="0" Grid.Row="2" Text="тест." Clicked="onButtonTestClick" />
+            </StackLayout>
+            <Grid Margin="5,0" MinimumHeightRequest="60">
+                <Label Grid.Column="0" Grid.Row="0" Text="Место: -" x:Name="_labelShipMapLocation" />
+                <Label Grid.Column="1" Grid.Row="0" Text="Позиция: (0, 0)" x:Name="_labelShipPosition"  />
+                
+                <Label Grid.Column="0" Grid.Row="1" Text="Корабль -" x:Name="_labelShipName" />
+                <Label Grid.Column="0" Grid.Row="2" Text="Экипаж: -" x:Name="_labelShipPeople"  />
+
+                <Label Grid.Column="1" Grid.Row="1" Text="Палубы: -" x:Name="_labelShipDecks"  />
+                <Label Grid.Column="1" Grid.Row="2" Text="Модули: -" x:Name="_labelShipModules" />
+            </Grid>
+            <StackLayout Orientation="Horizontal">
+                <Button Grid.Column="0" Margin="5, 0, 5, 0" Text="Инф." Clicked="onButtonShipInfoPage" />
+                <Button Grid.Column="0" Margin="5, 0, 5, 0" Text="Пост." Clicked="onButtonBuildPage" />
+                <Button Grid.Column="0" Margin="5, 0, 5, 0" Text="Кор." Clicked="onButtonShipsPage" />
+                <Button Grid.Column="0" Margin="5, 0, 5, 0" Text="Пер." Clicked="onButtonPerPageClick" />
+            </StackLayout>
+            
+            <Grid Margin="10, 0, 10, 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.6*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Все модули:" />
+                <ListView x:Name="moduleList" Grid.Column="1" Grid.Row="0" BackgroundColor="#DCDCDC">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Height="35">
+                                <StackLayout>
+                                    <Grid>
+                                        
+                                        <Label Grid.Column="0" Text="{Binding Name}" />
+                                        <Label Grid.Column="1" Text="{Binding progress}" />
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

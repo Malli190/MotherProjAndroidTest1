@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Pages.ShipPages.sInfo">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid MinimumHeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.8*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Margin="0" Text="Наз." Clicked="buttonBackClick" HorizontalOptions="Fill" VerticalOptions="Fill" />
+                <Label Grid.Column="1" Padding="10, 0, 0, 0" Background="CadetBlue" VerticalTextAlignment="Center"  TextColor="White" FontAttributes="Bold" Text="Информация" />
+            </Grid>
+            <Grid Margin="10, 0" MinimumHeightRequest="56">
+                <Label Grid.Column="0" Grid.Row="0" x:Name="_labelId" Text="id: -"  />
+                <Label Grid.Column="0" Grid.Row="1" x:Name="_labelName" Text="Имя: -" />
+                <Label Grid.Column="0" Grid.Row="2" x:Name="_labelPeople" Text="Экипаж: -" />
+
+                <Label Grid.Column="1" Grid.Row="0" x:Name="_labelDecks" Text="Палубы: -" />
+                <Label Grid.Column="1" Grid.Row="1" x:Name="_labelModules" Text="Модули: -" />
+            </Grid>
+            <StackLayout Orientation="Horizontal" Margin="5, 0" HeightRequest="34">
+                <Label Text="Состояние: -" />
+            </StackLayout>
+            <StackLayout Margin="0" Orientation="Horizontal" Spacing="0" HeightRequest="40">
+                <Button Text="Плб." BorderWidth="0" />
+                <Button Text="Мдл." BorderWidth="0" />
+            </StackLayout>
+            <StackLayout Spacing="0" Padding="0" Margin="5, 0" VerticalOptions="FillAndExpand">
+                    <CollectionView x:Name="deckList" Grid.Column="0" Grid.Row="0" Grid.RowSpan="8">
+                        <CollectionView.ItemTemplate >
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding id}" Grid.Column="0" />
+                                    <Label Text="{Binding name}" Grid.Column="1" />
+                                    <Label Text="{Binding level}" Grid.Column="2" />
+                                    <Label Text="{Binding people}" Grid.Column="3" />
+
+                                    <Button Text=">" TabIndex="{Binding tab_id}" Grid.Column="4" Clicked="onButtonDeckClick" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+               
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HeightRequest="40" Margin="0,0,0,10">
+                <Button Text="Новая палуба" BorderWidth="0" Clicked="onButtonNewDeckClick"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

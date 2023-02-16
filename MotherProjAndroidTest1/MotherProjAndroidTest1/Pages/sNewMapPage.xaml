@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Pages.sNewMapPage">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout Grid.Row="0" Grid.Column="0">
+                <Grid MinimumHeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.2*" />
+                        <ColumnDefinition Width="0.8*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Margin="0" Text="Наз." Clicked="buttonBackClick" HorizontalOptions="Fill" VerticalOptions="Fill" />
+                    <Label Grid.Column="1" Padding="10, 0, 0, 0" Background="CadetBlue" VerticalTextAlignment="Center"  TextColor="White" FontAttributes="Bold" Text="Новая карта" />
+                </Grid>
+                <Grid Margin="5, 0">
+                    <Label Grid.Column="0" Text="Наименование:" VerticalTextAlignment="Center" />
+                    <Entry Grid.Column="1" x:Name="mapNameInput" Placeholder="test_" />
+                    <Button Grid.Column="2" Text="Сгенерировать" Font="12" Clicked="onButtonGenerateMapNameClick" />
+                </Grid>
+                <Grid Margin="10, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="140" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="42" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Text="Ширина" WidthRequest="25" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+
+                    <Entry x:Name="entryWInputField" Grid.Column="1" Grid.Row="0" Placeholder="0" TextChanged="onEntryWFiledChancheValue" HorizontalTextAlignment="End" />
+                    <Stepper x:Name="stepperWidth" Grid.Column="2" Grid.Row="0" Minimum="0" Maximum="100" Increment="1" ValueChanged="onWidthStepperChanche" />
+
+                    <Label Grid.Column="0" Grid.Row="1" Text="Высота" WidthRequest="25" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+
+                    <Entry x:Name="entryHInputField" Grid.Column="1" Grid.Row="1" Placeholder="0" TextChanged="onEntryHFiledChancheValue" HorizontalTextAlignment="End" />
+                    <Stepper x:Name="stepperHeight" Grid.Column="2" Grid.Row="1" Minimum="0" Maximum="100" Increment="1" ValueChanged="onHeightStepperChanche" />
+                </Grid>
+                <Grid Margin="10, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="140" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="42" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Text="Ширина регионов" WidthRequest="25" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+
+                    <Entry x:Name="entryWRegInputField" Grid.Column="1" Grid.Row="0" Placeholder="0" TextChanged="onEntryWRegFiledChancheValue" HorizontalTextAlignment="End" />
+                    <Stepper x:Name="stepperWidthReg" Grid.Column="2" Grid.Row="0" Minimum="0" Maximum="100" Increment="1" ValueChanged="onWidthRegStepperChanche" />
+
+                    <Label Grid.Column="0" Grid.Row="1" Text="Высота регионов" WidthRequest="25" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+
+                    <Entry x:Name="entryHRegInputField" Grid.Column="1" Grid.Row="1" Placeholder="0" TextChanged="onEntryHRegFiledChancheValue" HorizontalTextAlignment="End" />
+                    <Stepper x:Name="stepperHeightReg" Grid.Column="2" Grid.Row="1" Minimum="0" Maximum="100" Increment="1" ValueChanged="onHeightRegStepperChanche" />
+                </Grid>
+                <Grid Margin="5, 0" >
+                    <Label Grid.Column="0" Grid.Row="0" Text="Итог:" />
+                    <Label Grid.Column="0" Grid.Row="1" x:Name="finalWidthLabel" Text="Ширина карты:" />
+                    <Label Grid.Column="0" Grid.Row="2" x:Name="finalHeightLabel" Text="Высота карты:" />
+                </Grid>
+                <StackLayout>
+                    <Button Text="Создать" Clicked="onButtonCreateMapClick" />
+                </StackLayout>
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

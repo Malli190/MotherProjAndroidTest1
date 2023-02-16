@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Pages.ShipPages.sDeck">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid MinimumHeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.8*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Margin="0" Text="Наз." Clicked="buttonBackClick" HorizontalOptions="Fill" VerticalOptions="Fill" />
+                <Label Grid.Column="1" Padding="10, 0, 0, 0" Background="CadetBlue" x:Name="_labelHead" VerticalTextAlignment="Center"  TextColor="White" FontAttributes="Bold" Text="Палуба" />
+            </Grid>
+            <Grid Margin="10, 0">
+                <Label Text="Палуба -" Grid.Column="0" x:Name="_labelDeckName"/>
+                <Label Text="Экипаж -" Grid.Column="1" x:Name="_labelPeople"/>
+                <Button Text="Редактировать" Font="12" Grid.Column="2" Clicked="onButtonEditDeckClick" />
+
+                <Label Text="Уровень: -" Grid.Column="0" Grid.Row="1" x:Name="_labelDeckLevel" />
+            </Grid>
+            <Grid>
+                <CollectionView x:Name="deckRoomList" Grid.Column="0" Grid.Row="0">
+                    <CollectionView.ItemTemplate >
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding id}" Grid.Column="0" />
+                                <Label Text="{Binding name}" Grid.Column="1" />
+                                <Label Text="{Binding health}" Grid.Column="2" />
+                                <Label Text="{Binding people}" Grid.Column="3" />
+
+                                <Label Text="{Binding width}" Grid.Column="4" />
+                                <Label Text="{Binding height}" Grid.Column="5" />
+
+                                <Button Text=">" TabIndex="{Binding tab_id}" Grid.Column="6" Clicked="onSelectRoomClick" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Новая каюта" Clicked="onButtonAddDeckRoom"/>
+                <Button Text="Разобрать" Clicked="onButtonRemoveDeck" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

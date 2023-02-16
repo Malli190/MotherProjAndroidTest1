@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Pages.gShipsPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Grid MinimumHeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.8*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Margin="0" Text="Наз." Clicked="buttonBackClick" HorizontalOptions="Fill" VerticalOptions="Fill" />
+                <Label Grid.Column="1" Padding="10, 0, 0, 0" Background="CadetBlue" VerticalTextAlignment="Center"  TextColor="White" FontAttributes="Bold" Text="Корабли" />
+            </Grid>
+            <StackLayout>
+                <Label x:Name="labelAllShips"/>
+            </StackLayout>
+            <Grid Margin="10, 0">
+                <CollectionView x:Name="shipsList" Grid.Row="0">
+                    <CollectionView.ItemTemplate >
+                        <DataTemplate>
+                            <Grid HeightRequest="38">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding id}" Grid.Column="0" />
+                                <Label Text="{Binding name}" Grid.Column="1" />
+                                <Label Text="{Binding status.value}" Grid.Column="2" />
+
+                                <Button Text=">" Font="18" TabIndex="{Binding id}" Grid.Column="3" Clicked="buttonShipInfoClick" BorderWidth="0" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

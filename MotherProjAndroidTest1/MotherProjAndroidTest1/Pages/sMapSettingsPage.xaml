@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Pages.sMapSettingsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid MinimumHeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.8*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Margin="0" Text="Наз." Clicked="buttonBackClick" HorizontalOptions="Fill" VerticalOptions="Fill" />
+                <Label Grid.Column="1" Padding="10, 0, 0, 0" x:Name="headerLabel" Background="CadetBlue" VerticalTextAlignment="Center"  TextColor="White" FontAttributes="Bold" Text="" />
+            </Grid>
+            <Grid Margin="10, 0" MinimumHeightRequest="150">
+                <Label Grid.Column="0" Grid.Row="0" x:Name="label_id" Text="id: -" />
+                <Label Grid.Column="0" Grid.Row="1" x:Name="label_width" Text="id: -" />
+                <Label Grid.Column="0" Grid.Row="2" x:Name="label_height" Text="id: -" />
+
+                <Label Grid.Column="1" Grid.Row="0" x:Name="label_region_count" Text="id: -" />
+                <Label Grid.Column="1" Grid.Row="1" x:Name="label_areaPerRegion_count" Text="id: -" />
+                <Label Grid.Column="1" Grid.Row="2" x:Name="label_area_count" Text="id: -" />
+            </Grid>
+            <Grid Margin="5, 0">
+                <CollectionView x:Name="chunkRegionList">
+                    <CollectionView.ItemTemplate >
+                        <DataTemplate>
+                            <Grid>
+                                <Label Text="{Binding label_id}" Grid.Column="0" Grid.Row="0" />
+                                <Label Text="{Binding label_reg}" Grid.Column="1" Grid.Row="0" />
+                                <Label Text="{Binding name}" Grid.Column="2" Grid.Row="0" />
+                                <Label Text="{Binding areas}" Grid.Column="3" Grid.Row="0" />
+                                
+                                <Label Text="{Binding text}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+
+            <Grid Margin="10, 0" MinimumHeightRequest="50">
+                <Button Grid.Column="0" Text="Использовать" Clicked="onButtonUseClick" />
+                <Button Grid.Column="1" Text="Удалить" Clicked="onButtonDeleteClick" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
